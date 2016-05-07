@@ -1,26 +1,18 @@
 $(document).ready(function () {
-  var counter = 0;
 $('.generate').on('click', function () {
+  console.log($(this).parent());
+
 $(this).parent().append('<div class="container"></div>');
-var $el = $(this).parent().children().last();
-$el.append('<button class="delete">Delete</button>');
-$el.append('<button class="change-button">Change Color</button>');
-counter++;
-$el.append(counter);
-
-});
-
-$('main').on('click','.delete', function () {
-  $(this).parent().remove();
+$('.container').append('<button class="delete-button">Delete</button>');
+$('.container').append('<button class="change-button">Change Color</button>');
 })
-var clicks = 0
-$('main').on('click', '.change-button', function (){
-  if (clicks % 2) {
-  $(this).parent().css('background-color', 'yellow');
-} else {
-$(this).parent().css('background-color', 'red');
-}
-clicks++;
 
+$('.delete-button').on('click', function () {
+  console.log($(this).parent());
 })
+$('.change-button').on('click', function (){
+  console.log($(this));
+})
+
+
 });
